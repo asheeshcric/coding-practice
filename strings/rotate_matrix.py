@@ -5,6 +5,7 @@ def display_matrix(matrix):
         print(row)
 
 def rotate_matrix(matrix):
+    # Rotate a matrix by 90 degrees clockwise
     mat_len = len(matrix)
     new_matrix = [[] for i in range(mat_len)]
     for i in reversed(range(mat_len)):
