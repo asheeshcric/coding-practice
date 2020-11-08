@@ -34,7 +34,11 @@ class SLinkedList:
             current = self.head
             while current.next is not None:
                 if current.next.data == data:
-                    current.next = current.next.next
+                    if current.next.next is None:
+                        # This is the last node
+                        current.next = None
+                    else:
+                        current.next = current.next.next
                     break
 
     def display(self):
