@@ -6,6 +6,7 @@ class Node:
 
 
 class Queue:
+    # Queues are generally used in BFS and cache
 
     def __init__(self):
         self.head = None

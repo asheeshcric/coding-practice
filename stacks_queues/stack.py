@@ -6,6 +6,8 @@ class Node:
 
 
 class Stack:
+    # Stacks are often used in recursive algorithms
+    # Can also be used to implement a recursive algorithm iteratively.
 
     def __init__(self):
         self.top = None
