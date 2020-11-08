@@ -13,7 +13,7 @@ class SLinkedList:
     def insert(self, data):
         new_node = Node(data=data)
         # Check if there's a head node or not
-        if new_node is None:
+        if self.head is None:
             # If no head, the new node is the head
             self.head = new_node
         else:
@@ -23,3 +23,24 @@ class SLinkedList:
                 current = current.next
             
             current.next = new_node
+
+    def delete(self, data):
+        if self.head is None:
+            print('List empty')
+        elif self.head.data == data:
+            # Need to delete the head node
+            self.head = self.head.next
+        else:
+            current = self.head
+            while current.next is not None:
+                if current.next.data == data:
+                    current.next = current.next.next
+                    break
+
+    def display(self):
+        current = self.head
+        while current is not None:
+            print(current.data, end=' ')
+            current = current.next
+        
+        print()
