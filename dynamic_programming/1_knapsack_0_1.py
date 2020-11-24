@@ -14,6 +14,10 @@ def knapsack(weights, values, W, n):
     if n <= 0 or W <= 0:
         return 0
 
+    # If the value is already calculated, use it
+    if dp[n][W] != -1:
+        return dp[n][W]
+
     # Check if the weight of the item is under the capacity of knapsack
     if weights[n-1] <= W:
         # If the item's weight is smaller than the remaining capacity of the knapsack,
