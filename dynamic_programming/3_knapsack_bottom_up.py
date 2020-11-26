@@ -8,7 +8,8 @@ Here, a (n+1)x(capacity+1) matrix if created and the first row and first column 
 .
 0
 NOTE: rows = (number_of_items+1) and columns = (capacity+1)
-
+So, each cell (i,j) in the matrix gets filled by the maximum value possible for the corresponding capacty and the number
+of items 
 """
 
 
