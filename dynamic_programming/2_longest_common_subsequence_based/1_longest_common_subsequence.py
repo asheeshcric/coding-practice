@@ -34,8 +34,8 @@ def lcs_bottom_up(x, y, n, m):
     global dp
 
     # Initialize the dp matrix
-    for i in range(n):
-        for j in range(m):
+    for i in range(n+1):
+        for j in range(m+1):
             if i == 0 or j == 0:
                 dp[i][j] = 0
             else:

@@ -28,8 +28,8 @@ def lc_substring(x, y, n, m):
     max_len = 0
 
     # Initialize the matrix
-    for i in range(n):
-        for j in range(m):
+    for i in range(n+1):
+        for j in range(m+1):
             if i == 0 or j == 0:
                 dp[i][j] = 0
 
