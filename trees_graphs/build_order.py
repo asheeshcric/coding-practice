@@ -6,7 +6,8 @@ If build is not possible, return -1
 from collections import defaultdict
 
 projects = ['a', 'b', 'c', 'd', 'e', 'f']
-dependencies = [('a', 'd'), ('f', 'b'), ('b', 'd'), ('f', 'a'), ('d', 'c')]
+dependencies = [('a', 'd'), ('f', 'b'), ('b', 'd'),
+                ('f', 'a'), ('d', 'c'), ('c', 'b')]
 
 
 def build_graph(projects, dependencies):
@@ -21,12 +22,16 @@ def build_graph(projects, dependencies):
 def do_dfs(project):
     global order, graph, state
     print(f'DFS on project {project}')
+    # print(f'State: {state}')
     if state[project] == 'visiting':
         # A cycle is detected
         return False
 
     state[project] = 'visiting'
     for node in graph[project]:
+        if state[node] == 'visiting':
+            # Cycle found
+            return False
         if state[node] == '':
             if not do_dfs(node):
                 return False
@@ -50,6 +55,7 @@ def build_order(projects, dependencies):
 order = []
 state = defaultdict(str)
 graph = build_graph(projects, dependencies)
+print(graph)
 
 if build_order(projects, dependencies):
     print(order[::-1])
