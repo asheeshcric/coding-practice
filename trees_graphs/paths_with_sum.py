@@ -9,6 +9,9 @@ class TreeNode:
 class Solution:
 
     def path_with_root(self, root, target):
+        """
+        This function takes all previous nodes into the sum and sees if we reach the target sum
+        """
         if root is None:
             return 0
 
@@ -22,6 +25,7 @@ class Solution:
         return num_paths
 
     def pathSum(self, root: TreeNode, k: int) -> int:
+        # This function does not take the previous nodes into account
         if root is None:
             return 0
 
