@@ -4,12 +4,12 @@ from typing import List
 class Solution:
 
     def num_paths(self, grid, row, col):
-        if grid[row][col] == 1:
-            # Obstacle found, no path
-            return 0
-
         if row < 0 or col < 0:
             # Can't move to this direction
+            return 0
+
+        if grid[row][col] == 1:
+            # Obstacle found, no path
             return 0
 
         if row == 0 and not any([grid[0][k] for k in range(col)]):
