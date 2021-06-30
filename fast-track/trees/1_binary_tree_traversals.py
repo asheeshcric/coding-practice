@@ -30,29 +30,79 @@ def create_tree() -> Node:
     return root
 
 
-def in_order_traversal(root):
-    pass
+def print_tree(node, level=0):
+    # The structure is not printed well though
+    if node != None:
+        print_tree(node.left, level + 1)
+        print(" " * 4 * level + "->", node.data)
+        print_tree(node.right, level + 1)
 
 
-def pre_order_traversal(root):
-    pass
+def in_order_traversal(root, result):
+    if root is not None:
+        if root.left is not None:
+            in_order_traversal(root.left, result)
+        result.append(root.data)
+        if root.right is not None:
+            in_order_traversal(root.right, result)
+
+    return result
 
 
-def post_order_traversal(root):
-    pass
+def pre_order_traversal(root, result):
+    if root is not None:
+        result.append(root.data)
+        if root.left is not None:
+            pre_order_traversal(root.left, result)
+        if root.right is not None:
+            pre_order_traversal(root.right, result)
+
+    return result
 
 
-def level_order_traversal(root):
-    pass
+def post_order_traversal(root, result):
+    if root is not None:
+        if root.left is not None:
+            post_order_traversal(root.left, result)
+        if root.right is not None:
+            post_order_traversal(root.right, result)
+        result.append(root.data)
+
+    return result
+
+
+def add_to_queue(queue, node):
+    if node.left is not None:
+        queue.append(node.left)
+    if node.right is not None:
+        queue.append(node.right)
+    return queue
+
+
+def level_order_traversal(root, result, queue):
+    result.append(root.data)
+    queue = add_to_queue(queue, root)
+    while len(queue) > 0:
+        node = queue.pop(0)
+        result.append(node.data)
+        queue = add_to_queue(queue, node)
+
+    return result
 
 
 def main():
     root = create_tree()
+    print_tree(root)
 
-    in_order_traversal(root)
-    pre_order_traversal(root)
-    post_order_traversal(root)
-    level_order_traversal(root)
+    result = []
+    print(in_order_traversal(root, result))
+    result = []
+    print(pre_order_traversal(root, result))
+    result = []
+    print(post_order_traversal(root, result))
+    result = []
+    queue = []
+    print(level_order_traversal(root, result, queue))
 
 
 if __name__ == "__main__":
