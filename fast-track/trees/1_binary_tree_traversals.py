@@ -6,6 +6,8 @@ Four ways to traverse a Binary Tree
     - Level order (Breadth First)
 """
 
+# -----------------Boiler Code----------------
+
 import random
 
 
@@ -28,6 +30,9 @@ def create_tree() -> Node:
             node = node.left if random.randint(0, 10) % 2 == 0 else node.right
 
     return root
+
+
+# --------------End of Boiler Code----------------
 
 
 def print_tree(node, level=0):
