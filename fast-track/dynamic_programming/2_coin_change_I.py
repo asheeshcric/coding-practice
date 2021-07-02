@@ -31,7 +31,8 @@ def coin_change(coins, amount):
                 dp[i] = min(dp[i - coin] + 1, dp[i])
 
     print(dp)
-    return dp[amount]
+    # Return the min number of coins if the value is not equal to the intialized value else return -1
+    return dp[amount] if dp[amount] != amount+1 else -1
 
 
 if __name__ == "__main__":
