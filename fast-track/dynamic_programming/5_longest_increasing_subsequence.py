@@ -9,8 +9,9 @@ Solution:
     1. Construct a dp array that is initialized with 1 for all elements in the array
         - This means we can atleast draw one LIS from the array
     2. You will need to use two pointers in the dp array
-        - "i" goes through each element of the array one by one
-        - "j" keeps track of the elements before
+        - "j" starts from the second element and goes to the end
+        - "i" moves from 0th index until j-1 and compares the values with value at "j"
+        - if arr[j] > arr[i], it means the subsequence can be increased by 1 for all the previous subsequences of length i
 
 """
 
