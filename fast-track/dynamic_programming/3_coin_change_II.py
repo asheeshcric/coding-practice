@@ -7,6 +7,7 @@ You may assume that you have an infinite number of each kind of coin.
 
 
 Solution: This is similar to the unbounded knapsack 0-1 problem. Using a 2D dp matrix, we track for both different coins and different amounts
+Also, rod cutting is a similar problem
 """
 
 
