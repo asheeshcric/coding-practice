@@ -23,6 +23,8 @@ def dfs(node, node_neighbors):
         # return the new node that we already created for that value
         return node_neighbors[node.val]
 
+    # For each node in the old graph, we are going to first create a new node and explore its neighbors using DFS
+    # Append the neighbors to the new_node
     new_copy = Node(val=node.val)
     node_neighbors[node.val] = new_copy
     for neighbor in node.neighbors:
