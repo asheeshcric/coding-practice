@@ -2,6 +2,12 @@
 Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.
 
 You must write an algorithm that runs in O(n) time.
+
+Solution:
+1. Start from the first number and check if it is the start of a new sequence
+    - If it is, check for all consecutive numbers and record the length (comparing to the max length)
+    - If it is not, ignore it (you will get back to it from the start of another sequence)
+2. At the end, the longest sequence length will be recorded.
 """
 
 
