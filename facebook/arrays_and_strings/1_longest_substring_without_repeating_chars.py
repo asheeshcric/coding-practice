@@ -17,7 +17,7 @@ class Solution:
                 last_valid_index = seen_chars[char] + 1
             else:
                 current_length += 1
-            
+
             seen_chars[char] = i
 
             max_length = max(max_length, current_length)
