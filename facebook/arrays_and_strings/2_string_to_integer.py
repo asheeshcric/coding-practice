@@ -1,10 +1,15 @@
 class Solution:
     def myAtoi(self, s: str) -> int:
         digits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'}
-        # Remove all the whitespaces
-        s = s.replace(" ", "")
         if not s:
             return 0
+        
+        # Remove all preeceding spaces
+        for i, char in enumerate(s):
+            if char != " ":
+                break
+                
+        s = s[i:]
 
         # Check whether positive or negative
         sign = 1
@@ -24,9 +29,9 @@ class Solution:
         if not result:
             return 0
 
-        if type == 1:
-            result = min(int(result), 2**31-1)
+        if sign == 1:
+            result = min(int(result), 2147483647)
         else:
-            result = min(int(result), 2**31)
+            result = min(int(result), 2147483648)
 
         return result * sign
