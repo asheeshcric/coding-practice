@@ -8,7 +8,7 @@ class Solution:
     def editDistance(self, word1: str, word2: str) -> int:
         """
         Returns the min number of operations required to convert "word1" to "word2"
-        Dynamic programming problem
+        Dynamic programming problem - LEETCODE HARD
         Example: If word1 = "abd" and word2 = "acd", the answer should be 1 as only one operation (replace b with c) is required
         Use two pointers i and j to traverse through both the strings
         Two cases:
@@ -58,4 +58,21 @@ class Solution:
         return cache[0][0]
 
     def isOneEditDistance(self, s: str, t: str) -> bool:
-        pass
+        if len(s) > len(t):
+            # We want to make sure that the first string is of smaller length
+            # This will make our if conditions easier to code and understand
+            return self.isOneEditDistance(t, s)
+
+        for i in range(len(s)):
+            if s[i] != t[i]:
+                # Two cases:
+                # a. If both strings are of same length, the remaining substring must match
+                # as we can only replace the unmatched characters
+                if len(s) == len(t):
+                    return s[i + 1 :] == t[i + 1 :]
+                # Else, we can add one char at index i to make them match
+                else:
+                    return s[i:] == t[i + 1 :]
+
+        # At the end, we want to make sure that the lengths of the strings actually only differ by 1 to satisfy the DELETE operation
+        return len(s) + 1 == len(t)
