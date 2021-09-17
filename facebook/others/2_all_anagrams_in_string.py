@@ -37,9 +37,9 @@ class Solution:
                     window.pop(s[left])
                 else:
                     window[s[left]] -= 1
-
+                
                 # We need to check if the last char taken disrupts our already formed anagram or not
-                if have == need and window.get(s[left], 0)+1 == counts[s[left]]:
+                if s[left] in counts and window.get(s[left], 0)+1 == counts[s[left]]:
                     have -= 1
 
                 left += 1
