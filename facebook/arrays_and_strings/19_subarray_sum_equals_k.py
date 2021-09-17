@@ -1,6 +1,10 @@
 from typing import List
 
 """
+Given an array of integers nums and an integer k, return the total number of continuous subarrays whose sum equals to k.
+
+
+
 We use a hashmap to keep track of all the prefix sums that we've encountered so far
 1. This means for current sum of the subarray, if we have a prefix sum that we've already calculated and that happens to be current_sum - k, then
 we can chop off that portion of the array to still get to the required sum
