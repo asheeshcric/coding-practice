@@ -13,6 +13,7 @@ Traverse through the list:
 Keep changing the pointers direction for each pair
 """
 
+
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         prev, current = None, head
