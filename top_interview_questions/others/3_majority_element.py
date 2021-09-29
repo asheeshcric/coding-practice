@@ -21,4 +21,14 @@ class Solution:
         return majority
 
     def majorityConstantSpace(self, nums: List[int]) -> int:
-        pass
+        # It is impossible to discard the majority to make the count 0
+        # Eventually you'll have the majority as the candidate (as there are more than n//2 majority numbers )
+        count = 0
+        candidate = None
+
+        for num in nums:
+            if count == 0:
+                candidate = num
+            count += 1 if num == candidate else -1
+
+        return candidate
