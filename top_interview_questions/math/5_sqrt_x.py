@@ -30,13 +30,13 @@ class Solution:
         left, right = 2, x // 2
 
         while left <= right:
-            pivot = left + (right - left) // 2
-            num = pivot * pivot
-            if num > x:
-                right = pivot - 1
+            mid = (left + right) // 2
+            num = mid * mid
+            if num == x:
+                return mid
             elif num < x:
-                left = pivot + 1
+                left = mid + 1
             else:
-                return pivot
+                right = mid - 1
 
         return right
