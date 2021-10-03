@@ -10,7 +10,7 @@ class Solution:
 
         for j in range(1, len(nums)):
             for i in range(j):
-                if dp[j] > dp[i]:
+                if nums[j] > nums[i]:
                     dp[j] = max(1 + dp[i], dp[j])
 
-        return dp[-1]
+        return max(dp)
