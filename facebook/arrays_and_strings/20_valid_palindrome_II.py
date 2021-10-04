@@ -23,6 +23,7 @@ class Solution:
                     if self.validPalindrome(s[left + 1 : right + 1], deleted=True):
                         return True
                     else:
+                        # Deleting the right char
                         return self.validPalindrome(s[left:right], deleted=True)
 
             left += 1
