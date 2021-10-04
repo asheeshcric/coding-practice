@@ -7,7 +7,7 @@ class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
         s, p = s2, s1
         if len(s) < len(p):
-            return []
+            return False
 
         counts, window = dict(), dict()
         for char in p:
@@ -30,7 +30,7 @@ class Solution:
                     window[s[left]] -= 1
 
                 # We need to check if the last char taken disrupts our already formed anagram or not
-                if s[left] in counts and window.get(s[left], 0)+1 == counts[s[left]]:
+                if s[left] in counts and window.get(s[left], 0) + 1 == counts[s[left]]:
                     have -= 1
 
                 left += 1
