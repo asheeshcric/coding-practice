@@ -10,7 +10,8 @@ We use a hashmap to keep track of all the prefix sums that we've encountered so 
 we can chop off that portion of the array to still get to the required sum
 2. Hence, we keep on looking how many prefix_sums we can add up to in order to satisfy the given target
 
-
+It's using the property:
+    - sum(i, j) = sum(0, j) - sum(0, i)
 """
 
 
