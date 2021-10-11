@@ -31,7 +31,19 @@ def LIS(arr, dp):
     return max(dp)
 
 
+def LIS_II(arr, dp):
+    # Idea is to start checking from the end
+    # For each index, there will only be 1
+    for i in range(len(arr) - 1, -1, -1):
+        for j in range(i + 1, len(arr)):
+            if arr[i] < arr[j]:
+                dp[i] = max(dp[i], 1 + dp[j])
+
+    return max(dp)
+
+
 if __name__ == "__main__":
     arr = [10, 9, 2, 5, 3, 7, 101, 18]
     dp = [1 for _ in arr]
-    print(LIS(arr, dp))
+    print(LIS(arr, list(dp)))
+    print(LIS_II(arr, dp))
