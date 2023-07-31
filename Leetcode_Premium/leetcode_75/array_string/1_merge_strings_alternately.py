@@ -4,13 +4,18 @@ If a string is longer than the other, append the additional letters onto the end
 
 Return the merged string.
 """
-word1 = "pqrs"
-word2 = "abc"
 
-merged_string = ""
-for i in range(min(len(word1), len(word2))):
-    merged_string += word1[i] + word2[i]
 
-merged_string += word1[i + 1 :] + word2[i + 1 :]
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        merged_string = ""
+        for i in range(min(len(word1), len(word2))):
+            merged_string += word1[i] + word2[i]
 
-print(merged_string)
+        merged_string += word1[i + 1 :] + word2[i + 1 :]
+
+        return merged_string
+
+
+sol = Solution()
+print(sol.mergeAlternately("abcde", "qrs"))
