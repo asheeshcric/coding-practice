@@ -39,5 +39,17 @@ class Solution:
         leaves1, leaves2 = [], []
         self.find_leaves(root1, leaves1)
         self.find_leaves(root2, leaves2)
+        print(leaves1, leaves2)
 
         return True if leaves1 == leaves2 else False
+
+
+if __name__ == "__main__":
+    root = TreeNode(val=1)
+    root.left = TreeNode(val=2)
+    root.right = TreeNode(val=3)
+    root.left.left = TreeNode(val=4)
+    root.right.right = TreeNode(val=5)
+
+    sol = Solution()
+    print(sol.leafSimilar(root, root))
